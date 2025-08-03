@@ -1,0 +1,91 @@
+%base-button {
+	@include font-size (16);
+	font-weight: 600;
+	line-height: 1;
+	padding: 15px 30px;
+	@include bp(smx) {
+		@include font-size(14);
+		padding: 10px 20px;
+	}
+}
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: none;
+	background-color: $secondary-color;
+	color: $light-color;
+	cursor: pointer;
+	padding: 12px 30px;
+	@include transition(background-color 0.3s);
+    &:hover,
+    &:active,
+    &:focus {
+    	background-color: $hover-color;
+    }
+}
+
+.button-primary,
+.button-round {
+	@extend %base-button;
+	background-color: $secondary-color;
+	color: $light-color;
+	display: inline-block;
+	position: relative;
+	@include transition(background-color 0.3s);
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: $hover-color;
+		color: $light-color;
+	}
+}
+
+.outline-primary,
+.outline-round {
+	@extend %base-button;
+	border: 2px solid #292929;
+	color: #292929;
+	display: inline-block;
+	position: relative;
+	padding: 13px 30px;
+	@include transition(background-color 0.3s, border-color 0.3s);
+	@include bp(smx) {
+		padding: 8px 20px;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: $hover-color;
+		border-color: $hover-color;
+		color: $light-color;
+	}
+}
+
+.button-round,
+.outline-round {
+	@include border-radius(30px);
+}
+
+.button-text {
+	color: $title-color;
+	@include font-size(14);
+	text-transform: uppercase;
+	position: relative;
+	@include transition(all 0.4s);
+	&:after {
+		content: "\f101";
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 900;
+		margin-left: 6px;
+		@include transition(all 0.4s);
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $hover-color;
+		&:after {
+			margin-left: 8px;
+		}
+	}
+}
