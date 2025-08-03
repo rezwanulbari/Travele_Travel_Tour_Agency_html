@@ -1,0 +1,83 @@
+.bottom-header {
+	@include transition(background-color 0.5s linear);
+}
+.fixed-header {
+	.bottom-header {
+		@include bp(lg) {
+			background-color: $light-color;
+			@include box-shadow(0 -3px 10px rgba(0, 0, 0, 0.2));
+			position: fixed;
+			top: 0;
+			width: 100%;
+			left: 0;
+			z-index: 999;
+			.white-logo {
+				display: none;
+			}
+			.black-logo {
+				display: block;
+			}
+		}
+		@include bp(lgx) {
+			background-color: transparent;
+			position: relative;
+		}
+	}
+	.main-navigation {
+		.navigation {
+			> ul {
+				> li {
+					> a {
+						color: $title-color;
+						padding: 22px 0;
+						&:before {
+							background-color: lighten($title-color, 20%);
+						}
+					}
+				}
+			}
+		}
+	}
+	.header-icons {
+		.icon-item {
+			a {
+				color: $title-color;
+				&:hover {
+					color: $hover-color;
+				}
+			}
+		}
+	}
+	@include bp(lgx) {
+		.mobile-menu-container {
+			background-color: $light-color;
+			@include box-shadow(0 -3px 10px rgba(0, 0, 0, 0.2));
+			position: fixed;
+			top: 0;
+			width: 100%;
+			left: 0;
+			z-index: 999;
+			.slicknav_nav {
+				min-height: calc(100vh - 78px);
+		    	height: 100%;
+		    	overflow-y: scroll;
+		    	position: absolute;
+		    	width: 100%;
+		    	left: 0;
+		    	right: 0;
+			}
+			.slicknav_menu .slicknav_menutxt {
+				color: #212121;
+			}
+			.slicknav_btn .slicknav_icon span {
+				background-color: #212121;
+				&:first-child {
+	    			&:before,
+	    			&:after {
+	    				background-color: #212121;
+	    			}
+	    		}
+			}
+		}
+	}
+}
